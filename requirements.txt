@@ -1,12 +1,44 @@
-Django==5.1.4
-djangorestframework==3.15.2
-django-cors-headers==4.6.0
-psycopg2-binary==2.9.10
-python-decouple==3.8
-Pillow==11.0.0
-django-allauth==65.3.0
-python-dateutil==2.8.2
-gunicorn==23.0.0
-whitenoise==6.8.2
+# Django Core
+Django==6.0.2
+djangorestframework==3.16.1
+django-cors-headers==4.9.0
+django-allauth==65.14.1
+
+# Database
+psycopg2-binary==2.9.11
 dj-database-url==2.2.0
-requests==2.32.3
+
+# Configuration
+python-decouple==3.8
+
+# Image Processing
+Pillow==12.0.0
+
+# Date/Time
+python-dateutil==2.8.2
+
+# Web Server
+gunicorn==23.0.0
+
+# Static Files
+whitenoise==6.8.2
+
+# HTTP Requests (required by django-allauth)
+requests==2.32.5
+urllib3==2.6.2
+certifi==2025.11.12
+charset-normalizer==3.4.4
+idna==3.11
+
+# JWT (required by django-allauth for OAuth)
+PyJWT==2.11.0
+cryptography==46.0.4
+
+# Other Dependencies
+asgiref==3.11.1
+sqlparse==0.5.5
+typing-extensions==4.15.0
+six==1.17.0
+packaging==25.0
+pytz==2025.2
+tzdata==2025.3
