@@ -97,10 +97,6 @@ def google_login(request):
             )
             is_new_user = True
             
-            # Send welcome email
-            from accounts.notifications import email_service
-            email_service.send_welcome_email(user)
-            
             logger.info(f"New user created via Google OAuth: {user.username}")
         
         # Create or get social account
