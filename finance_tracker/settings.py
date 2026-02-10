@@ -195,7 +195,7 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # Vite dev server
     "http://127.0.0.1:5173",
-    "https://finance-tracker-frontend.onrender.com",  # Production frontend (update with actual URL)
+    "https://finance-tracker-frontend-804q.onrender.com",  # Production frontend
 ]
 
 CORS_ALLOW_CREDENTIALS = True
