@@ -2,6 +2,8 @@ import { useState, useEffect, createContext, useContext } from 'react';
 import axios from 'axios';
 import { Chart as ChartJS, ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import { Pie, Bar } from 'react-chartjs-2';
+import AIChat from './AIChat';
+import BankUpload from './BankUpload';
 ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 // API Configuration
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
@@ -2007,6 +2009,8 @@ function App() {
     { id: 'categories', name: 'Categories', icon: 'M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z' },
     { id: 'budgets', name: 'Budgets', icon: 'M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z' },
     { id: 'reports', name: 'Reports', icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z' },
+    { id: 'ai-chat', name: 'AI Advisor', icon: 'M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z' },
+    { id: 'bank-upload', name: 'Upload Statement', icon: 'M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12' },
   ];
   // Admin menu items
   const adminMenuItems = [
@@ -2179,6 +2183,8 @@ function App() {
           {currentPage === 'categories' && <Categories />}
           {currentPage === 'budgets' && <Budgets />}
           {currentPage === 'reports' && <Reports />}
+          {currentPage === 'ai-chat' && <AIChat />}
+          {currentPage === 'bank-upload' && <BankUpload />}
           {currentPage === 'admin-dashboard' && user.is_staff && <AdminDashboard />}
           {currentPage === 'admin-users' && user.is_staff && <AdminUserManagement />}
         </div>
