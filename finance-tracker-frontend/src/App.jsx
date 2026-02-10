@@ -1980,12 +1980,357 @@ function AdminUserManagement() {
     </div>
   );
 }
+// About Page Component
+function About() {
+  return (
+    <div className="p-8 max-w-4xl mx-auto animate-fadeIn">
+      <div className="mb-8">
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
+          About SamarFinance Tracker
+        </h1>
+        <p className="text-gray-600">Your intelligent personal finance management solution</p>
+      </div>
+
+      <div className="space-y-6">
+        <div className="bg-white rounded-2xl shadow-lg p-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">What is SamarFinance Tracker?</h2>
+          <p className="text-gray-600 leading-relaxed mb-4">
+            SamarFinance Tracker is a comprehensive full-stack finance management application designed to help you take control of your financial life. Built with modern technologies and powered by AI, it provides intelligent insights and automated tools to manage your money effectively.
+          </p>
+          <p className="text-gray-600 leading-relaxed">
+            Whether you're tracking daily expenses, setting budget goals, or analyzing spending patterns, SamarFinance Tracker makes personal finance management simple, intuitive, and powerful.
+          </p>
+        </div>
+
+        <div className="bg-white rounded-2xl shadow-lg p-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">Key Features</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="flex items-start space-x-4">
+              <div className="p-3 bg-indigo-100 rounded-xl">
+                <svg className="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-1">Transaction Management</h3>
+                <p className="text-sm text-gray-600">Track income, expenses, and transfers with receipt uploads</p>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-4">
+              <div className="p-3 bg-purple-100 rounded-xl">
+                <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-1">AI Financial Advisor</h3>
+                <p className="text-sm text-gray-600">Get personalized financial advice and insights</p>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-4">
+              <div className="p-3 bg-green-100 rounded-xl">
+                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-1">Bank Statement Upload</h3>
+                <p className="text-sm text-gray-600">Auto-import transactions from PDF/CSV files</p>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-4">
+              <div className="p-3 bg-pink-100 rounded-xl">
+                <svg className="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-1">Budget Tracking</h3>
+                <p className="text-sm text-gray-600">Set goals and monitor spending limits</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-2xl shadow-lg p-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">Technology Stack</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="text-center p-4 bg-gray-50 rounded-xl">
+              <p className="font-semibold text-gray-800">Django</p>
+              <p className="text-xs text-gray-500">Backend</p>
+            </div>
+            <div className="text-center p-4 bg-gray-50 rounded-xl">
+              <p className="font-semibold text-gray-800">React</p>
+              <p className="text-xs text-gray-500">Frontend</p>
+            </div>
+            <div className="text-center p-4 bg-gray-50 rounded-xl">
+              <p className="font-semibold text-gray-800">PostgreSQL</p>
+              <p className="text-xs text-gray-500">Database</p>
+            </div>
+            <div className="text-center p-4 bg-gray-50 rounded-xl">
+              <p className="font-semibold text-gray-800">AI Powered</p>
+              <p className="text-xs text-gray-500">Intelligence</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl shadow-lg p-8 text-white">
+          <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
+          <p className="leading-relaxed">
+            To empower individuals with intelligent tools and insights that make personal finance management accessible, automated, and actionable. We believe everyone deserves to have control over their financial future.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Contact Page Component
+function Contact() {
+  return (
+    <div className="p-8 max-w-4xl mx-auto animate-fadeIn">
+      <div className="mb-8">
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
+          Contact Us
+        </h1>
+        <p className="text-gray-600">Get in touch with the SamarFinance Tracker team</p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-white rounded-2xl shadow-lg p-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">Get In Touch</h2>
+          
+          <div className="space-y-6">
+            <div className="flex items-start space-x-4">
+              <div className="p-3 bg-indigo-100 rounded-xl">
+                <svg className="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-1">Email</h3>
+                <a href="mailto:samarmittal123456789@gmail.com" className="text-indigo-600 hover:underline">
+                  samarmittal123456789@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-4">
+              <div className="p-3 bg-purple-100 rounded-xl">
+                <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-1">GitHub</h3>
+                <a href="https://github.com/Samar23dev/Samar_finance_tracker" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:underline">
+                  github.com/Samar23dev
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-4">
+              <div className="p-3 bg-green-100 rounded-xl">
+                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-1">Website</h3>
+                <a href="https://finance-tracker-frontend-804q.onrender.com" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:underline">
+                  SamarFinance Tracker
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-2xl shadow-lg p-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">Quick Links</h2>
+          
+          <div className="space-y-4">
+            <a href="https://github.com/Samar23dev/Samar_finance_tracker" target="_blank" rel="noopener noreferrer" className="block p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="font-semibold text-gray-800">View Source Code</h3>
+                  <p className="text-sm text-gray-600">Check out the project on GitHub</p>
+                </div>
+                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+
+            <a href="https://github.com/Samar23dev/Samar_finance_tracker/issues" target="_blank" rel="noopener noreferrer" className="block p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="font-semibold text-gray-800">Report an Issue</h3>
+                  <p className="text-sm text-gray-600">Found a bug? Let us know</p>
+                </div>
+                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+
+            <a href="https://github.com/Samar23dev" target="_blank" rel="noopener noreferrer" className="block p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="font-semibold text-gray-800">Developer Profile</h3>
+                  <p className="text-sm text-gray-600">More projects by Samar</p>
+                </div>
+                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-6 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl shadow-lg p-8 text-white">
+        <h2 className="text-2xl font-bold mb-4">Support & Feedback</h2>
+        <p className="leading-relaxed mb-4">
+          We're constantly working to improve SamarFinance Tracker. Your feedback helps us build better features and provide a better experience for everyone.
+        </p>
+        <p className="leading-relaxed">
+          Feel free to reach out with questions, suggestions, or just to say hello. We'd love to hear from you!
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// GitHub Page Component
+function GitHubPage() {
+  return (
+    <div className="p-8 max-w-4xl mx-auto animate-fadeIn">
+      <div className="mb-8">
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
+          Open Source Project
+        </h1>
+        <p className="text-gray-600">SamarFinance Tracker is open source and available on GitHub</p>
+      </div>
+
+      <div className="space-y-6">
+        <div className="bg-white rounded-2xl shadow-lg p-8">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold text-gray-800">Repository</h2>
+            <a 
+              href="https://github.com/Samar23dev/Samar_finance_tracker" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 px-4 py-2 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition-colors"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+              </svg>
+              <span>View on GitHub</span>
+            </a>
+          </div>
+
+          <div className="prose prose-sm max-w-none">
+            <p className="text-gray-600 mb-4">
+              <strong>Repository:</strong> <a href="https://github.com/Samar23dev/Samar_finance_tracker" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">Samar23dev/Samar_finance_tracker</a>
+            </p>
+            <p className="text-gray-600">
+              This project is built with Django REST Framework (backend) and React (frontend), featuring AI-powered financial insights and automated transaction management.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
+            <div className="inline-block p-4 bg-indigo-100 rounded-xl mb-4">
+              <svg className="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-bold text-gray-800 mb-2">Star the Project</h3>
+            <p className="text-sm text-gray-600">Show your support by starring the repository</p>
+          </div>
+
+          <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
+            <div className="inline-block p-4 bg-purple-100 rounded-xl mb-4">
+              <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-bold text-gray-800 mb-2">Fork & Contribute</h3>
+            <p className="text-sm text-gray-600">Fork the repo and submit pull requests</p>
+          </div>
+
+          <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
+            <div className="inline-block p-4 bg-green-100 rounded-xl mb-4">
+              <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-bold text-gray-800 mb-2">Report Issues</h3>
+            <p className="text-sm text-gray-600">Help us improve by reporting bugs</p>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-2xl shadow-lg p-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">Tech Stack</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="p-4 bg-gray-50 rounded-xl text-center">
+              <p className="font-semibold text-gray-800">Django 6.0</p>
+              <p className="text-xs text-gray-500">Backend Framework</p>
+            </div>
+            <div className="p-4 bg-gray-50 rounded-xl text-center">
+              <p className="font-semibold text-gray-800">React 18</p>
+              <p className="text-xs text-gray-500">Frontend Library</p>
+            </div>
+            <div className="p-4 bg-gray-50 rounded-xl text-center">
+              <p className="font-semibold text-gray-800">PostgreSQL</p>
+              <p className="text-xs text-gray-500">Database</p>
+            </div>
+            <div className="p-4 bg-gray-50 rounded-xl text-center">
+              <p className="font-semibold text-gray-800">AI Powered</p>
+              <p className="text-xs text-gray-500">Smart Features</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl shadow-lg p-8 text-white">
+          <h2 className="text-2xl font-bold mb-4">Contributing</h2>
+          <p className="leading-relaxed mb-4">
+            We welcome contributions from the community! Whether it's bug fixes, new features, or documentation improvements, your help makes this project better for everyone.
+          </p>
+          <a 
+            href="https://github.com/Samar23dev/Samar_finance_tracker/blob/main/README.md" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center space-x-2 px-6 py-3 bg-white text-gray-900 rounded-xl font-semibold hover:bg-gray-100 transition-colors"
+          >
+            <span>Read Contributing Guidelines</span>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // Main App Component with Sidebar Navigation
 function App() {
   const { user, logout, loading } = useAuth();
   const [currentPage, setCurrentPage] = useState('dashboard');
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [showRegister, setShowRegister] = useState(false);
+  
+  // Set default page based on user role
+  useEffect(() => {
+    if (user) {
+      setCurrentPage(user.is_staff ? 'admin-dashboard' : 'dashboard');
+    }
+  }, [user]);
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 to-purple-50">
@@ -2003,7 +2348,8 @@ function App() {
       <Login onSwitchToRegister={() => setShowRegister(true)} />
     );
   }
-  const menuItems = [
+  // Regular user menu items
+  const menuItems = user.is_staff ? [] : [
     { id: 'dashboard', name: 'Dashboard', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6' },
     { id: 'transactions', name: 'Transactions', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01' },
     { id: 'categories', name: 'Categories', icon: 'M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z' },
@@ -2012,6 +2358,14 @@ function App() {
     { id: 'ai-chat', name: 'AI Advisor', icon: 'M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z' },
     { id: 'bank-upload', name: 'Upload Statement', icon: 'M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12' },
   ];
+  
+  // Common menu items for all users
+  const commonMenuItems = [
+    { id: 'about', name: 'About', icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
+    { id: 'contact', name: 'Contact', icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
+    { id: 'github', name: 'GitHub', icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4' },
+  ];
+  
   // Admin menu items
   const adminMenuItems = [
     { id: 'admin-dashboard', name: 'Admin Dashboard', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' },
@@ -2032,7 +2386,7 @@ function App() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">FinTrack</span>
+                  <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">SamarFinance Tracker</span>
                 </div>
               ) : (
                 <div className="p-2 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl mx-auto">
@@ -2045,7 +2399,60 @@ function App() {
           </div>
           {/* Navigation */}
           <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
-            {menuItems.map(item => (
+            {user.is_staff ? (
+              // Admin sees only admin menu
+              <>
+                {adminMenuItems.map(item => (
+                  <button
+                    key={item.id}
+                    onClick={() => setCurrentPage(item.id)}
+                    className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${
+                      currentPage === item.id
+                        ? 'bg-gradient-to-r from-red-500 to-pink-600 text-white shadow-lg shadow-red-500/50'
+                        : 'text-gray-600 hover:bg-red-50 hover:text-red-600'
+                    }`}
+                  >
+                    <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} />
+                    </svg>
+                    {sidebarOpen && <span className="font-medium">{item.name}</span>}
+                  </button>
+                ))}
+              </>
+            ) : (
+              // Regular users see normal menu
+              <>
+                {menuItems.map(item => (
+                  <button
+                    key={item.id}
+                    onClick={() => setCurrentPage(item.id)}
+                    className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${
+                      currentPage === item.id
+                        ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg'
+                        : 'text-gray-600 hover:bg-gray-100'
+                    }`}
+                  >
+                    <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} />
+                    </svg>
+                    {sidebarOpen && <span className="font-medium">{item.name}</span>}
+                  </button>
+                ))}
+              </>
+            )}
+            
+            {/* Common menu items for all users */}
+            {sidebarOpen && (
+              <div className="pt-4 pb-2 border-t-2 border-gray-200">
+                <div className="px-4">
+                  <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">More</p>
+                </div>
+              </div>
+            )}
+            {!sidebarOpen && (
+              <div className="pt-4 pb-2 border-t-2 border-gray-200"></div>
+            )}
+            {commonMenuItems.map(item => (
               <button
                 key={item.id}
                 onClick={() => setCurrentPage(item.id)}
@@ -2061,49 +2468,6 @@ function App() {
                 {sidebarOpen && <span className="font-medium">{item.name}</span>}
               </button>
             ))}
-            {/* Admin Section */}
-            {user.is_staff && (
-              <>
-                {sidebarOpen && (
-                  <div className="pt-4 pb-2 border-t-2 border-gray-200">
-                    <div className="px-4 flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                      <p className="text-xs font-bold text-red-600 uppercase tracking-wider">Admin Panel</p>
-                    </div>
-                  </div>
-                )}
-                {!sidebarOpen && (
-                  <div className="pt-4 pb-2 border-t-2 border-gray-200">
-                    <div className="flex justify-center">
-                      <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                    </div>
-                  </div>
-                )}
-                {adminMenuItems.map(item => (
-                  <button
-                    key={item.id}
-                    onClick={() => setCurrentPage(item.id)}
-                    className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${
-                      currentPage === item.id
-                        ? 'bg-gradient-to-r from-red-500 to-pink-600 text-white shadow-lg shadow-red-500/50'
-                        : 'text-gray-600 hover:bg-red-50 hover:text-red-600'
-                    }`}
-                  >
-                    <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} />
-                    </svg>
-                    {sidebarOpen && <span className="font-medium">{item.name}</span>}
-                    {sidebarOpen && currentPage === item.id && (
-                      <span className="ml-auto">
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                      </span>
-                    )}
-                  </button>
-                ))}
-              </>
-            )}
           </nav>
           {/* User Profile */}
           <div className="p-4 border-t border-gray-100">
@@ -2178,15 +2542,18 @@ function App() {
         </div>
         {/* Page Content */}
         <div className="min-h-screen">
-          {currentPage === 'dashboard' && <Dashboard />}
-          {currentPage === 'transactions' && <Transactions />}
-          {currentPage === 'categories' && <Categories />}
-          {currentPage === 'budgets' && <Budgets />}
-          {currentPage === 'reports' && <Reports />}
-          {currentPage === 'ai-chat' && <AIChat />}
-          {currentPage === 'bank-upload' && <BankUpload />}
-          {currentPage === 'admin-dashboard' && user.is_staff && <AdminDashboard />}
-          {currentPage === 'admin-users' && user.is_staff && <AdminUserManagement />}
+          {!user.is_staff && currentPage === 'dashboard' && <Dashboard />}
+          {!user.is_staff && currentPage === 'transactions' && <Transactions />}
+          {!user.is_staff && currentPage === 'categories' && <Categories />}
+          {!user.is_staff && currentPage === 'budgets' && <Budgets />}
+          {!user.is_staff && currentPage === 'reports' && <Reports />}
+          {!user.is_staff && currentPage === 'ai-chat' && <AIChat />}
+          {!user.is_staff && currentPage === 'bank-upload' && <BankUpload />}
+          {user.is_staff && currentPage === 'admin-dashboard' && <AdminDashboard />}
+          {user.is_staff && currentPage === 'admin-users' && <AdminUserManagement />}
+          {currentPage === 'about' && <About />}
+          {currentPage === 'contact' && <Contact />}
+          {currentPage === 'github' && <GitHubPage />}
         </div>
       </main>
     </div>

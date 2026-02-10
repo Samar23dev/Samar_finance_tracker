@@ -63,7 +63,7 @@ export default function AIChat() {
         <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
           AI Financial Advisor
         </h1>
-        <p className="text-gray-600">Chat with your personal AI financial advisor powered by Google Gemini</p>
+        <p className="text-gray-600">Chat with your personal AI financial advisor</p>
       </div>
 
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
