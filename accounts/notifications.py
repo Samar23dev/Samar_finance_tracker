@@ -292,5 +292,14 @@ class EmailNotificationService:
         return self.send_email(user.email, subject, html_content)
 
 
-# Create a singleton instance
-email_service = EmailNotificationService()
+"""
+Email Notification Service
+Uses Mailgun API to bypass Render's SMTP port blocks
+"""
+
+# Import Mailgun service instead of SMTP
+from accounts.mailgun_service import email_service as mailgun_service
+
+
+# Use Mailgun service for all email operations
+email_service = mailgun_service
