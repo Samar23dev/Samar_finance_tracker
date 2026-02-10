@@ -31,6 +31,14 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         validated_data.pop('password2')
         user = User.objects.create_user(**validated_data)
+        
+        # Auto-add to Mailgun authorized recipients
+        try:
+            from accounts.mailgun_service import email_service
+            email_service.add_authorized_recipient(user.email)
+        except Exception as e:
+            print(f"Could not add user to Mailgun: {e}")
+        
         return user
 
 

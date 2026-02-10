@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'accounts',
     'transactions',
     'dashboard',
+    'ai_features',
 ]
 
 SITE_ID = 1

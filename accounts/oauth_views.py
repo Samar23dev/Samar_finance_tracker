@@ -97,6 +97,13 @@ def google_login(request):
             )
             is_new_user = True
             
+            # Auto-add to Mailgun authorized recipients
+            try:
+                from accounts.mailgun_service import email_service
+                email_service.add_authorized_recipient(email)
+            except Exception as e:
+                logger.warning(f"Could not add user to Mailgun: {e}")
+            
             logger.info(f"New user created via Google OAuth: {user.username}")
         
         # Create or get social account

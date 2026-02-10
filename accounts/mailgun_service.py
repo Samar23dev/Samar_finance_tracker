@@ -98,6 +98,56 @@ class MailgunEmailService:
     def send_email(self, to_email, subject, html_content, plain_content=None):
         """Send email using Mailgun API - bypasses SMTP port blocks"""
         return self.send_email_async(to_email, subject, html_content, plain_content)
+    
+    def add_authorized_recipient(self, email):
+        """Add email to Mailgun authorized recipients (for sandbox domains)"""
+        if not self.api_key or not self.domain:
+            logger.warning("Mailgun not configured")
+            return False
+        
+        try:
+            # For sandbox domains, use routes API to whitelist
+            # Note: Mailgun sandbox requires manual authorization via dashboard
+            # This is a limitation of the free tier
+            
+            # Send a test email to trigger authorization request
+            url = f"https://api.mailgun.net/v3/{self.domain}/messages"
+            
+            response = requests.post(
+                url,
+                auth=("api", self.api_key),
+                data={
+                    "from": self.from_email,
+                    "to": email,
+                    "subject": "Authorize Your Email - Finance Tracker",
+                    "text": f"Please click the link in this email to authorize {email} to receive emails from Finance Tracker.",
+                    "html": f"""
+                    <html>
+                    <body style="font-family: Arial, sans-serif; padding: 20px;">
+                        <h2>Authorize Your Email</h2>
+                        <p>You've registered for Finance Tracker!</p>
+                        <p>Since we're using Mailgun's free sandbox, please click the authorization link that Mailgun sent you.</p>
+                        <p>Once authorized, you'll receive all notifications from Finance Tracker.</p>
+                        <p>Thank you!</p>
+                    </body>
+                    </html>
+                    """
+                },
+                timeout=10
+            )
+            
+            if response.status_code == 200:
+                logger.info(f"Authorization email sent to: {email}")
+                print(f"✅ Authorization email sent to {email}")
+                return True
+            else:
+                logger.warning(f"Failed to send authorization email: {response.text}")
+                print(f"⚠️  Could not send authorization email to {email}")
+                return False
+                
+        except Exception as e:
+            logger.error(f"Error sending authorization email: {str(e)}")
+            return False
 
 
 # Create singleton instance

@@ -25,5 +25,6 @@ urlpatterns = [
     path('auth/login/', obtain_auth_token, name='api_token_auth'),
     path('auth/google/', google_login, name='google_login'),
     path('auth/google/config/', google_oauth_config, name='google_oauth_config'),
-    path('auth/', include('rest_framework.urls')),  # Browsable API login/logout
+    path('auth/', include('rest_framework.urls')),
+    path('ai/', include('ai_features.urls')),  # AI features
 ]

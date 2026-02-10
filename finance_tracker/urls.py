@@ -17,6 +17,8 @@ urlpatterns = [
     path('api/', include('finance_tracker.api_urls')),
 ]
 
-# Serve media files in development (for receipt uploads)
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# Serve media files (receipts, bank statements, etc.)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Serve static files in production (handled by WhiteNoise)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
