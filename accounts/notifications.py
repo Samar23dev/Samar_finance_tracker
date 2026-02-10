@@ -23,7 +23,7 @@ class EmailNotificationService:
             logger.info("Email backend is console mode. Emails will print to console.")
     
     def send_email(self, to_email, subject, html_content, plain_content=None):
-        """Send an email using Django's email backend (Gmail SMTP or SendGrid)"""
+        """Send an email using Django's email backend (Gmail SMTP or SendGrid) with timeout"""
         try:
             # Create plain text version if not provided
             if not plain_content:
@@ -40,8 +40,16 @@ class EmailNotificationService:
             # Attach HTML version
             email.attach_alternative(html_content, "text/html")
             
-            # Send email
-            email.send(fail_silently=False)
+            # Send email with timeout handling
+            import socket
+            original_timeout = socket.getdefaulttimeout()
+            try:
+                socket.setdefaulttimeout(10)  # 10 second timeout
+                email.send(fail_silently=False)
+                socket.setdefaulttimeout(original_timeout)
+            except socket.timeout:
+                socket.setdefaulttimeout(original_timeout)
+                raise Exception("Email sending timed out after 10 seconds")
             
             logger.info(f"Email sent successfully: {subject} to {to_email}")
             print(f"\n{'='*60}")
@@ -61,7 +69,7 @@ class EmailNotificationService:
             print(f"Error: {str(e)}")
             print(f"{'='*60}\n")
             print(f"HTML Content Preview:")
-            print(plain_content[:500])
+            print(plain_content[:500] if plain_content else "No content")
             print(f"{'='*60}\n")
             return False
     
