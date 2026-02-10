@@ -1,63 +1,64 @@
-# Personal Finance Tracker
+# 💰 Personal Finance Tracker
 
-A comprehensive Django-based web application to manage and analyze personal financial health.
+A comprehensive full-stack finance management application with AI-powered insights, built with Django REST Framework and React.
 
-## Features
+## ✨ Features
 
-### Day 1-2: Basic Functionality
+### Core Functionality
 - ✅ User Authentication (Register, Login, Profile Management)
-- ✅ Database Structure (Income, Expenses, Transactions)
-- ✅ Transaction Management (Add, Edit, Delete with edge case handling)
-- ✅ Dashboard with graphical representations
-- ✅ Financial Reporting (Monthly income vs expenses)
+- ✅ Google OAuth Integration
+- ✅ Transaction Management (Income, Expenses, Transfers)
 - ✅ Budget Goals and Tracking
+- ✅ Receipt Upload and Management
+- ✅ Financial Dashboard with Charts
+- ✅ Email Notifications (Mailgun)
 
-### Day 3: Additional Features
-- ✅ OAuth Integration (Google Sign-in)
-- ✅ Email Notifications (Budget overruns via SendGrid)
-- ✅ Receipt Uploading
-- ✅ Multiple Currency Support
+### AI Features 🤖
+- ✅ AI Financial Advisor (Google Gemini 2.5 Flash)
+- ✅ Bank Statement Upload (PDF/CSV)
+- ✅ Auto-Transaction Creation from Statements
+- ✅ Smart Financial Recommendations
 
-### Day 4: Deployment
-- ✅ Production deployment
-- ✅ Security and performance optimization
+## 🛠️ Tech Stack
 
-### Day 5: Testing
-- ✅ Comprehensive testing suite
+### Backend
+- Django 6.0.2
+- Django REST Framework
+- PostgreSQL
+- Google Gemini AI
+- Mailgun (Email)
+- WhiteNoise (Static Files)
 
-### Part B: Extra Credit
-- 🔄 OpenAI Integration
-- 🔄 Bank Statement Import (PDF/CSV)
-- 🔄 Anomaly Detection
+### Frontend
+- React 18
+- Vite
+- Axios
+- Modern CSS
 
-## Tech Stack
+### Deployment
+- Render (Backend & Frontend)
+- PostgreSQL (Render)
 
-- **Backend**: Django 5.0, Django REST Framework
-- **Database**: PostgreSQL
-- **Authentication**: Django Allauth (OAuth)
-- **Email**: SendGrid
-- **Frontend**: Django Templates, HTML, CSS
-- **Deployment**: Heroku/AWS/DigitalOcean
-
-## Installation
+## 🚀 Quick Start
 
 ### Prerequisites
-- Python 3.8+
-- PostgreSQL 12+ (Download from https://www.postgresql.org/download/)
-- Git
+- Python 3.11+
+- Node.js 18+
+- PostgreSQL 14+
 
-### Setup Steps
+### Backend Setup
 
-1. Clone the repository:
+1. Clone and navigate:
 ```bash
-git clone https://github.com/yourusername/FJ-BE-R2-yourname.git
-cd FJ-BE-R2-yourname
+git clone https://github.com/Samar23dev/Samar_finance_tracker.git
+cd Samar_finance_tracker
 ```
 
 2. Create virtual environment:
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+venv\Scripts\activate  # Windows
+source venv/bin/activate  # Mac/Linux
 ```
 
 3. Install dependencies:
@@ -65,99 +66,202 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-4. Install and setup PostgreSQL:
-   - Download from https://www.postgresql.org/download/windows/
-   - Install PostgreSQL (remember the password!)
-   - See `QUICKSTART.md` for detailed setup instructions
-
-5. Set up environment variables:
-   - Copy `.env.example` to `.env`
-   - Update `DATABASE_PASSWORD` with your PostgreSQL password
-   - Update other settings as needed
-
-6. Create database:
+4. Setup environment variables:
 ```bash
-python setup_database.py
-```
-Or manually create database named `finance_tracker` in pgAdmin
-
-7. Test database connection:
-```bash
-python test_postgres_connection.py
+copy .env.example .env
+# Edit .env with your credentials
 ```
 
-8. Run migrations:
+5. Run migrations:
 ```bash
-python manage.py makemigrations
 python manage.py migrate
+python manage.py create_superuser_if_none
+python manage.py populate_sample_data
 ```
 
-9. Create superuser:
-```bash
-python manage.py createsuperuser
-```
-
-10. Run development server:
+6. Start server:
 ```bash
 python manage.py runserver
 ```
 
-Visit http://127.0.0.1:8000/admin to access the admin panel.
+Backend runs at: http://localhost:8000
 
-## Project Structure
+### Frontend Setup
 
-```
-finance_tracker/
-├── finance_tracker/          # Project settings
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── accounts/                 # User authentication
-├── transactions/             # Transaction management
-├── dashboard/                # Dashboard and reports
-├── notifications/            # Email notifications
-├── templates/                # HTML templates
-├── static/                   # CSS, JS, images
-├── media/                    # User uploads
-└── manage.py
+1. Navigate to frontend:
+```bash
+cd finance-tracker-frontend
 ```
 
-## API Endpoints
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Setup environment:
+```bash
+copy .env.development .env
+# Edit VITE_API_URL if needed
+```
+
+4. Start dev server:
+```bash
+npm run dev
+```
+
+Frontend runs at: http://localhost:5173
+
+## 🔑 Environment Variables
+
+### Backend (.env)
+```env
+# Django
+SECRET_KEY=your-secret-key
+DEBUG=True
+ALLOWED_HOSTS=localhost,127.0.0.1
+
+# Database
+DATABASE_URL=postgresql://user:password@localhost:5432/finance_tracker
+
+# Google OAuth
+GOOGLE_CLIENT_ID=your-client-id
+GOOGLE_CLIENT_SECRET=your-client-secret
+
+# Google Gemini AI (Free at https://ai.google.dev/)
+GEMINI_API_KEY=your-gemini-api-key
+
+# Mailgun
+MAILGUN_API_KEY=your-mailgun-key
+MAILGUN_DOMAIN=your-mailgun-domain
+```
+
+### Frontend (.env)
+```env
+VITE_API_URL=http://localhost:8000/api
+```
+
+## 📡 API Endpoints
 
 ### Authentication
-- `POST /api/auth/register/` - User registration
-- `POST /api/auth/login/` - User login
+- `POST /api/auth/register/` - Register user
+- `POST /api/auth/login/` - Login
+- `POST /api/auth/google/` - Google OAuth
 - `GET /api/auth/profile/` - User profile
 
 ### Transactions
-- `GET /api/transactions/` - List all transactions
+- `GET /api/transactions/` - List transactions
 - `POST /api/transactions/` - Create transaction
-- `PUT /api/transactions/<id>/` - Update transaction
-- `DELETE /api/transactions/<id>/` - Delete transaction
+- `PUT /api/transactions/{id}/` - Update transaction
+- `DELETE /api/transactions/{id}/` - Delete transaction
 
-### Categories
-- `GET /api/categories/` - List categories
-- `POST /api/categories/` - Create category
+### AI Features
+- `POST /api/ai/chat/` - Chat with AI advisor
+- `GET /api/ai/chat/history/` - Get chat history
+- `POST /api/ai/upload/` - Upload bank statement
+- `GET /api/ai/statements/` - Get upload history
 
-### Budget
+### Budget & Reports
 - `GET /api/budgets/` - List budgets
-- `POST /api/budgets/` - Create budget goal
-
-### Reports
+- `POST /api/budgets/` - Create budget
 - `GET /api/reports/monthly/` - Monthly report
-- `GET /api/reports/category/` - Category-wise report
 
-## Testing
+## 🎯 AI Features Usage
 
-Run tests:
+### AI Chat Bot
+1. Navigate to "AI Advisor" tab
+2. Ask questions like:
+   - "How can I save more money?"
+   - "Analyze my spending patterns"
+   - "Should I increase my budget?"
+
+### Bank Statement Upload
+1. Go to "Upload Statement" tab
+2. Upload CSV or PDF file
+3. AI automatically:
+   - Extracts transactions
+   - Categorizes them
+   - Creates entries in your account
+   - Detects duplicates
+
+## 🌐 Production URLs
+
+- **Backend**: https://samar-finance-tracker-1.onrender.com
+- **Frontend**: https://finance-tracker-frontend-804q.onrender.com
+- **GitHub**: https://github.com/Samar23dev/Samar_finance_tracker
+
+## 📦 Project Structure
+
+```
+Samar_finance_tracker/
+├── accounts/                 # User authentication & OAuth
+├── transactions/             # Transaction management
+├── ai_features/             # AI chat & bank upload
+├── dashboard/               # Dashboard views
+├── finance_tracker/         # Django settings
+├── media/                   # Uploaded files
+├── finance-tracker-frontend/
+│   ├── src/
+│   │   ├── App.jsx
+│   │   ├── AIChat.jsx
+│   │   └── BankUpload.jsx
+│   └── package.json
+├── requirements.txt
+└── manage.py
+```
+
+## 🧪 Testing
+
+Run backend tests:
 ```bash
 python manage.py test
 ```
 
-## Deployment
+Test API endpoints:
+```bash
+python test_api.py
+```
 
-Deployment instructions for production environment.
+## 🚢 Deployment
 
-## License
+### Render Deployment
+
+1. Push to GitHub
+2. Connect Render to your repo
+3. Add environment variables
+4. Deploy automatically
+
+See deployment guides in the repo for detailed instructions.
+
+## 🆓 Free Tier Services
+
+- **Google Gemini**: 60 requests/min, completely free
+- **Mailgun**: 5,000 emails/month
+- **Render**: Free tier for web services
+- **PostgreSQL**: Free 256MB database on Render
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create feature branch
+3. Commit changes
+4. Push to branch
+5. Open pull request
+
+## 📄 License
 
 MIT License
+
+## 👨‍💻 Author
+
+Samar Mittal
+- GitHub: [@Samar23dev](https://github.com/Samar23dev)
+
+## 🙏 Acknowledgments
+
+- Google Gemini for free AI API
+- Render for hosting
+- Django & React communities
+
+---
+
+**Note**: This project was built as part of a full-stack development challenge, implementing modern web technologies with AI integration.
