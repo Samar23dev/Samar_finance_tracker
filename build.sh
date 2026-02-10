@@ -13,3 +13,6 @@ python manage.py migrate
 
 # Create superuser if none exists
 python manage.py create_superuser_if_none
+
+# Populate sample data (only runs if no data exists)
+python manage.py populate_sample_data
