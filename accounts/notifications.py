@@ -1,12 +1,14 @@
 """
 Email Notification Service
 Supports both Gmail SMTP and SendGrid via Django's email backend
+Uses threading for async email sending to prevent timeouts
 """
 
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 from django.utils.html import strip_tags
 import logging
+import threading
 
 logger = logging.getLogger(__name__)
 
@@ -22,8 +24,18 @@ class EmailNotificationService:
         if not self.enabled:
             logger.info("Email backend is console mode. Emails will print to console.")
     
-    def send_email(self, to_email, subject, html_content, plain_content=None):
-        """Send an email using Django's email backend (Gmail SMTP or SendGrid) with timeout"""
+    def send_email_async(self, to_email, subject, html_content, plain_content=None):
+        """Send email asynchronously in a separate thread to prevent blocking"""
+        thread = threading.Thread(
+            target=self._send_email_thread,
+            args=(to_email, subject, html_content, plain_content)
+        )
+        thread.daemon = True
+        thread.start()
+        return True  # Return immediately
+    
+    def _send_email_thread(self, to_email, subject, html_content, plain_content=None):
+        """Internal method to send email in a thread"""
         try:
             # Create plain text version if not provided
             if not plain_content:
@@ -44,12 +56,12 @@ class EmailNotificationService:
             import socket
             original_timeout = socket.getdefaulttimeout()
             try:
-                socket.setdefaulttimeout(10)  # 10 second timeout
+                socket.setdefaulttimeout(15)  # 15 second timeout
                 email.send(fail_silently=False)
                 socket.setdefaulttimeout(original_timeout)
             except socket.timeout:
                 socket.setdefaulttimeout(original_timeout)
-                raise Exception("Email sending timed out after 10 seconds")
+                raise Exception("Email sending timed out after 15 seconds")
             
             logger.info(f"Email sent successfully: {subject} to {to_email}")
             print(f"\n{'='*60}")
@@ -58,20 +70,19 @@ class EmailNotificationService:
             print(f"From: {self.from_email}")
             print(f"Backend: {self.backend}")
             print(f"{'='*60}\n")
-            return True
             
         except Exception as e:
             logger.error(f"Failed to send email: {subject} to {to_email}. Error: {str(e)}")
-            # Fallback to console output for development
             print(f"\n{'='*60}")
             print(f"❌ EMAIL FAILED: {subject}")
             print(f"To: {to_email}")
             print(f"Error: {str(e)}")
             print(f"{'='*60}\n")
-            print(f"HTML Content Preview:")
-            print(plain_content[:500] if plain_content else "No content")
-            print(f"{'='*60}\n")
-            return False
+    
+    def send_email(self, to_email, subject, html_content, plain_content=None):
+        """Send an email using Django's email backend (Gmail SMTP or SendGrid) with timeout"""
+        # Use async sending to prevent blocking
+        return self.send_email_async(to_email, subject, html_content, plain_content)
     
     def send_budget_alert(self, user, budget):
         """Send budget alert notification"""
