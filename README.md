@@ -38,19 +38,6 @@ npm install
 npm run dev
 ```
 
-## Environment Variables
-
-Create `.env` file:
-```env
-SECRET_KEY=your-secret-key
-DATABASE_URL=postgresql://user:password@localhost:5432/finance_tracker
-GOOGLE_CLIENT_ID=your-client-id
-GOOGLE_CLIENT_SECRET=your-client-secret
-GEMINI_API_KEY=your-gemini-api-key
-MAILGUN_API_KEY=your-mailgun-key
-MAILGUN_DOMAIN=your-mailgun-domain
-```
-
 ## Links
 
 - **Live App**: https://finance-tracker-frontend-804q.onrender.com
